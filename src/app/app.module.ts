@@ -3,15 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgxStartkitModule, HttpDefaultOptions, JWTOptions } from 'ngx-startkit';
-
-export class AppHttpDefaultOptions extends HttpDefaultOptions {
-  baseApiURL = 'https://www.googleapis.com/youtube/v3/';
-}
-
-export class AppJWTOptions extends JWTOptions {
-  key = 'taken';
-}
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,12 +12,9 @@ export class AppJWTOptions extends JWTOptions {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxStartkitModule
+    HttpClientModule
   ],
-  providers: [{
-    provide: HttpDefaultOptions,
-    useClass: AppHttpDefaultOptions
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

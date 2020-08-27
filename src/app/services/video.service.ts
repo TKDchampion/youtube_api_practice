@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { BaseService, HttpDefaultOptions } from 'ngx-startkit';
 import { HttpClient } from '@angular/common/http';
 import { VideoInfo } from './service.model';
+import { Key } from '.key';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class VideoService extends BaseService {
-  constructor(http: HttpClient, options: HttpDefaultOptions) {
-    super(http, options);
-  }
+export class VideoService {
+  url = 'https://www.googleapis.com/youtube/v3';
+  key = Key;
+  constructor(private http: HttpClient) { }
 
-  getVideo(obj: VideoInfo) {
-    return this.get('videos', {
-      queryObject: obj
-    });
+  getVideo(page?: string) {
+    return this.http.get(`${this.url}/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=12&key=${this.key}&${page}`);
   }
 }
