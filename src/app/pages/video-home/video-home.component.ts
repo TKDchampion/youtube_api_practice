@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from 'src/app/services/video.service';
 import { Key } from '.key';
-import { VideoInfo } from 'src/app/services/service.model';
 import { CardInfo } from './video-home.model';
 
 @Component({
@@ -14,6 +13,7 @@ export class VideoHomeComponent implements OnInit {
   key = Key;
   cardList: CardInfo[] = [];
   collectList: CardInfo[] = [];
+  pageOfItems: Array<any>;
 
   constructor(
     private videoService: VideoService
@@ -24,6 +24,12 @@ export class VideoHomeComponent implements OnInit {
       this.collectList = JSON.parse(localStorage.getItem('collect'));
     }
     this.getVideo();
+  }
+
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
+    console.log(pageOfItems);
   }
 
   getVideo(pageInfo?: string) {
@@ -37,8 +43,6 @@ export class VideoHomeComponent implements OnInit {
         duration: this.foramtterDuration(i.contentDetails.duration),
         isCollect: this.collectList.map(x => x.id).includes(i.id)
       }));
-      console.log(resp);
-      console.log(this.cardList);
     });
   }
 

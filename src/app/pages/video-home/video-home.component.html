@@ -1,7 +1,7 @@
 <div class="backgroung">
   <p>推薦影片</p>
   <div class="card_box">
-    <div class="card" *ngFor="let cardItem of cardList">
+    <div class="card" *ngFor="let cardItem of pageOfItems">
       <div class="card_img">
         <img [src]="cardItem.img" alt="">
         <i class="far fa-star" [ngClass]="cardItem.isCollect?'fas':'far'" (click)="collectButton(cardItem)"></i>
@@ -12,5 +12,8 @@
         <div class="card_content_description">{{cardItem.description}}</div>
       </div>
     </div>
+  </div>
+  <div class="footer">
+    <jw-pagination [items]="cardList" [pageSize]="12" (changePage)="onChangePage($event)"></jw-pagination>
   </div>
 </div>
