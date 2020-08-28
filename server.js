@@ -2,10 +2,10 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.static('./dist/inter-view'));
+app.use(express.static('./dist/interView'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/inter-view/'}),
+    res.sendFile('index.html', {root: 'dist/interView/'}),
 );
 
 app.listen(process.env.PORT || 8080);
