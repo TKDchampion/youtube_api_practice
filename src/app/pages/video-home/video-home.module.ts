@@ -13,7 +13,7 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
     CommonModule,
     VideoHomeRoutingModule,
     CommonModulesModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   providers: [NgxSpinnerService]
 })

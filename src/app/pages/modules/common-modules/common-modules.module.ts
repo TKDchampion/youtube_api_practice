@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JwPaginationComponent } from 'jw-angular-pagination';
-
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { PlayerComponent } from './player/player.component';
 
 
 @NgModule({
-  declarations: [JwPaginationComponent],
+  declarations: [JwPaginationComponent, PlayerComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    NgxYoutubePlayerModule
   ],
   exports: [
-    JwPaginationComponent
+    JwPaginationComponent,
+    // NgxYoutubePlayerModule
   ]
 })
 export class CommonModulesModule { }

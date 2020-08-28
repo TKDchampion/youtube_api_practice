@@ -4,6 +4,7 @@
 }
 .card {
   margin: 20px;
+  cursor: pointer;
 }
 .card_box {
   display: flex;
@@ -13,7 +14,6 @@
 .card_img {
   width: 320px;
   height: 180px;
-  cursor: pointer;
 }
 .card_img_duration {
   background-color: #151b1b;

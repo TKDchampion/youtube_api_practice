@@ -3,6 +3,7 @@ import { VideoService } from 'src/app/services/video.service';
 import { Key } from '.key';
 import { CardInfo } from './video-home.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-video-home',
@@ -18,7 +19,8 @@ export class VideoHomeComponent implements OnInit {
 
   constructor(
     private videoService: VideoService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,6 +28,10 @@ export class VideoHomeComponent implements OnInit {
       this.collectList = JSON.parse(localStorage.getItem('collect'));
     }
     this.getVideo();
+  }
+
+  openPlayer(item) {
+    this.router.navigate(['pages/home/player', { id: item.id }]);
   }
 
   onChangePage(pageOfItems: Array<any>) {

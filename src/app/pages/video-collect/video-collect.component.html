@@ -1,15 +1,15 @@
 <div class="backgroung">
   <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple"
     [fullScreen]="true"></ngx-spinner>
-  <p>推薦影片</p>
+  <p>收藏影片</p>
   <div class="card_box">
     <div class="card" *ngFor="let cardItem of pageOfItems">
       <div class="card_img">
-        <img [src]="cardItem.img" alt="">
+        <img [src]="cardItem.img" alt="" (click)="openPlayer(cardItem)">
         <i class="far fa-star" [ngClass]="cardItem.isCollect?'fas':'far'" (click)="collectButton(cardItem)"></i>
         <div class="card_img_duration">{{cardItem.duration}}</div>
       </div>
-      <div class="card_content">
+      <div class="card_content" (click)="openPlayer(cardItem)">
         <div class="card_content_title">{{cardItem.title}}</div>
         <div class="card_content_description">{{cardItem.description}}</div>
       </div>
