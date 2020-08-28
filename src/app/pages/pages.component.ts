@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 export class PagesComponent implements OnInit {
 
   menuList = [
-    { name: 'home', path: 'home', active: true },
-    { name: 'collect', path: 'collect', active: false }
+    { name: 'Home', path: '/pages/home', active: true },
+    { name: 'Collect', path: '/pages/collect', active: false }
   ];
 
   constructor(
@@ -18,10 +18,15 @@ export class PagesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    const activeItem = this.menuList.find(i => i.path === this.router.url);
+    if (activeItem) {
+      this.menuList.forEach(i => i.active = false);
+      activeItem.active = true;
+    }
   }
 
   goPages(item) {
-    this.router.navigate([`/pages/${item.path}`]);
+    this.router.navigate([item.path]);
     this.menuList.forEach(i => i.active = false);
     item.active = true;
   }

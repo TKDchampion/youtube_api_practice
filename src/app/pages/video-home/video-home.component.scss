@@ -1,6 +1,6 @@
 .backgroung {
   margin: 0 auto;
-  width: 80%;
+  max-width: 1440px;
 }
 .card {
   margin: 20px;
@@ -8,7 +8,6 @@
 .card_box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   background-color: #f9f9f9;
 }
 .card_img {

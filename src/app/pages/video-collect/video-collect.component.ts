@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Key } from '.key';
 import { CardInfo } from '../video-home/video-home.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-video-collect',
@@ -14,12 +15,14 @@ export class VideoCollectComponent implements OnInit {
   collectList: CardInfo[] = [];
   pageOfItems: Array<any>;
 
-  constructor(  ) { }
+  constructor(private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     if (JSON.parse(localStorage.getItem('collect'))) {
       this.collectList = JSON.parse(localStorage.getItem('collect'));
     }
+    this.spinner.hide();
   }
 
   onChangePage(pageOfItems: Array<any>) {

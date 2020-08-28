@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VideoService } from 'src/app/services/video.service';
 import { Key } from '.key';
 import { CardInfo } from './video-home.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-video-home',
@@ -16,7 +17,8 @@ export class VideoHomeComponent implements OnInit {
   pageOfItems: Array<any>;
 
   constructor(
-    private videoService: VideoService
+    private videoService: VideoService,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -27,12 +29,11 @@ export class VideoHomeComponent implements OnInit {
   }
 
   onChangePage(pageOfItems: Array<any>) {
-    // update current page of items
     this.pageOfItems = pageOfItems;
-    console.log(pageOfItems);
   }
 
   getVideo(pageInfo?: string) {
+    this.spinner.show();
     pageInfo = pageInfo ? `pageToken=${pageInfo}` : '';
     this.videoService.getVideo(pageInfo).subscribe((resp: any) => {
       this.cardList = resp.items.map((i) => ({
@@ -43,6 +44,7 @@ export class VideoHomeComponent implements OnInit {
         duration: this.foramtterDuration(i.contentDetails.duration),
         isCollect: this.collectList.map(x => x.id).includes(i.id)
       }));
+      this.spinner.hide();
     });
   }
 
