@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { VideoHomeRoutingModule } from './video-home-routing.module';
 import { VideoHomeComponent } from './video-home.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
+import { CommonModulesModule } from '../modules/common-modules/common-modules.module';
 
 
 @NgModule({
-  declarations: [VideoHomeComponent, JwPaginationComponent],
+  declarations: [VideoHomeComponent],
   imports: [
     CommonModule,
     VideoHomeRoutingModule,
+    CommonModulesModule
   ]
 })
 export class VideoHomeModule { }

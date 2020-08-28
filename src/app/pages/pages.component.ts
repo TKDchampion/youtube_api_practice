@@ -8,6 +8,11 @@ import { Router } from '@angular/router';
 })
 export class PagesComponent implements OnInit {
 
+  menuList = [
+    { name: 'home', path: 'home', active: true },
+    { name: 'collect', path: 'collect', active: false }
+  ];
+
   constructor(
     private router: Router
   ) { }
@@ -15,7 +20,9 @@ export class PagesComponent implements OnInit {
   ngOnInit() {
   }
 
-  goPages(path: string) {
-    this.router.navigate([`/pages/${path}`]);
+  goPages(item) {
+    this.router.navigate([`/pages/${item.path}`]);
+    this.menuList.forEach(i => i.active = false);
+    item.active = true;
   }
 }

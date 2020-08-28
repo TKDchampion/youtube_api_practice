@@ -1,3 +1,7 @@
-<button (click)="goPages('home')">home</button>
-<button (click)="goPages('collect')">collect</button>
+<div id="fixed-header-slide">
+  <div class="header">
+    <button class="btn" (click)="goPages(menuItem)" *ngFor="let menuItem of menuList"
+      [ngClass]="{'active': menuItem.active}">{{menuItem.name}}</button>
+  </div>
+</div>
 <router-outlet></router-outlet>
