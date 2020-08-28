@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 # key
-.key.ts
+# .key.ts
