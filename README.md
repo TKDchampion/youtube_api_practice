@@ -19,6 +19,7 @@
   - 已收藏以及未收藏的影片，收藏按鈕需有區別
   - 已收藏的影片，重新整理或再次進入時仍會是已收藏的狀態localstorage
 - 影片播放功能（ngx-youtube-player）
+  - 轉跳頁（router/:id）
 - Loading（ngx-spinner）
 - 彈窗（設計成共用元件service觸發）
 
