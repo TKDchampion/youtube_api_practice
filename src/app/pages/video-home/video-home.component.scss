@@ -1,6 +1,7 @@
 .backgroung {
   margin: 0 auto;
   max-width: 1440px;
+  margin-top: 80px;
 }
 .card {
   margin: 20px;
@@ -21,7 +22,7 @@
   width: 40px;
   height: 18px;
   position: relative;
-  top: -50px;
+  top: -25px;
   left: 278px;
   text-align: center;
   line-height: 18px;
@@ -29,21 +30,18 @@
 }
 .far {
   color: #d0cdcd;
-  position: relative;
-  right: -7px;
-  top: -180px;
 }
 .fas {
   color: #f7b704;
-  position: relative;
-  right: -7px;
-  top: -180px;
 }
 .card_content {
   width: 320px;
   font-family: Microsoft JhengHei, sans-serif;
 }
 .card_content_title {
+  display: flex;
+}
+.card_content_title_text {
   font-size: 18px;
   font-weight: 900;
   overflow: hidden;
@@ -62,12 +60,21 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   white-space: normal;
-  -webkit-line-clamp: 8;
+  -webkit-line-clamp: 3;
   margin-bottom: 5px;
+  cursor: auto;
+}
+.more_btn {
+  cursor: pointer;
 }
 .footer {
   margin: 0 auto;
   width: max-content;
+}
+
+.modal {
+  display: block;
+  word-break: break-word;
 }
 
 ::ng-deep jw-pagination ul {
@@ -82,7 +89,7 @@
   cursor: pointer;
 }
 ::ng-deep jw-pagination li.active {
-  background: #007BFF;
+  background: #007bff;
 }
 
 @media screen and (max-width: 380px) {

@@ -6,12 +6,17 @@
     <div class="card" *ngFor="let cardItem of pageOfItems">
       <div class="card_img">
         <img [src]="cardItem.img" alt="" (click)="openPlayer(cardItem)">
-        <i class="far fa-star" [ngClass]="cardItem.isCollect?'fas':'far'" (click)="collectButton(cardItem)"></i>
         <div class="card_img_duration">{{cardItem.duration}}</div>
       </div>
-      <div class="card_content" (click)="openPlayer(cardItem)">
-        <div class="card_content_title">{{cardItem.title}}</div>
+      <div class="card_content">
+        <div class="card_content_title">
+          <div class="card_content_title_text" (click)="openPlayer(cardItem)">{{cardItem.title}}</div>
+          <div>
+            <i class="far fa-star" [ngClass]="cardItem.isCollect?'fas':'far'" (click)="collectButton(cardItem)"></i>
+          </div>
+        </div>
         <div class="card_content_description">{{cardItem.description}}</div>
+        <div><button class="more_btn" (click)="openModal('custom-modal-1', cardItem)">more</button></div>
       </div>
     </div>
   </div>
@@ -19,3 +24,10 @@
     <jw-pagination [items]="cardList" [pageSize]="12" (changePage)="onChangePage($event)"></jw-pagination>
   </div>
 </div>
+
+<jw-modal id="custom-modal-1">
+  <div class="modal">
+    <h1>{{modal.title}}</h1>
+    <p>{{modal.description}}</p>
+  </div>
+</jw-modal>

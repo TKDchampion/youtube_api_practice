@@ -4,6 +4,7 @@ import { Key } from '.key';
 import { CardInfo } from './video-home.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import { ModalService } from '../modules/common-modules/modal/modal.service';
 
 @Component({
   selector: 'app-video-home',
@@ -16,11 +17,16 @@ export class VideoHomeComponent implements OnInit {
   cardList: CardInfo[] = [];
   collectList: CardInfo[] = [];
   pageOfItems: Array<any>;
+  modal = {
+    title: '',
+    description: ''
+  };
 
   constructor(
     private videoService: VideoService,
     private spinner: NgxSpinnerService,
-    private router: Router
+    private router: Router,
+    private modalService: ModalService
   ) { }
 
   ngOnInit() {
@@ -28,6 +34,12 @@ export class VideoHomeComponent implements OnInit {
       this.collectList = JSON.parse(localStorage.getItem('collect'));
     }
     this.getVideo();
+  }
+
+  openModal(id: string, cardItem) {
+    this.modalService.open(id);
+    this.modal.title = cardItem.title;
+    this.modal.description = cardItem.description;
   }
 
   openPlayer(item) {
