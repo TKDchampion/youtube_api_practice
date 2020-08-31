@@ -2,6 +2,7 @@
 [Demo](https://youtube202008.herokuapp.com/)
 
 ### 內容
+純前端（無後端，ＤＢ）
 - 到google apis console申請⼀個api⾦鑰(for youtube V3 api)
 - 首頁頁面（推薦影片）
   -  圖片
