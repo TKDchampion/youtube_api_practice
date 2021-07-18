@@ -24,6 +24,8 @@
 - Loading（ngx-spinner）
 - 彈窗（設計成共用元件service觸發）
 
+P.S. 由於部署在免費的Heroku因此當進入會等主機喚醒要比較久，要耐心等待ＸＤ
+
 
 
 
